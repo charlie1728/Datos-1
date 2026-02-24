@@ -23,7 +23,7 @@ public class Main{
                 sc.nextLine();
                 System.out.print("Nombre: ");
                 nombre = sc.nextLine();
-                System.out.println("Email: ");
+                System.out.print("Email: ");
                 email = sc.nextLine();
                 CRUDArchivo.crearUsuario(new Usuario(id, nombre, email));
                     break;
@@ -36,7 +36,7 @@ public class Main{
                 sc.nextLine();
                 System.out.print("Nombre: ");
                 nombre = sc.nextLine();
-                System.out.println("Email: ");
+                System.out.print("Email: ");
                 email = sc.nextLine();
                 CRUDArchivo.actualizarUsuario(id, nombre, email);
                     break;

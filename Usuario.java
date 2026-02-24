@@ -9,7 +9,7 @@ public class Usuario {
         this.email = email;
     }
 
-    public int getID() { return  id;}
+    public int getId() {return id;}
     public String getNombre() { return  nombre;}
     public String getEmail() { return  email;}
 
@@ -19,11 +19,6 @@ public class Usuario {
     @Override
     public String toString() {
         return id + "," + nombre + "," + email;
-    }
-
-    public int getId() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getId'");
     }
 }
 
