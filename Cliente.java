@@ -4,7 +4,7 @@ public class Cliente {
     private String apellido;
     private int telefono;
     private Boolean activo;
-
+//cliente
     public Cliente(int id_clinete, String nombre, String apellido, int telefono, boolean activo) {
         this.id_clinete = id_clinete;
         this.nombre = nombre;

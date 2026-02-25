@@ -14,7 +14,7 @@ public class CRUDArchivo {
     bw.newLine();
     bw.close();
     }
-
+//lista de clientes
     
     public static List<Cliente> ListarClientes(Cliente cliente) throws IOException {
         List<Cliente> lista = new ArrayList<>();
