@@ -67,6 +67,13 @@ public class CRUDArchivo {
         }
         bw.close();
     }
+    public static void RegistrarPedido(Pedido pedido) throws IOException {
+    FileWriter fw = new FileWriter("pedidos.txt", true);
+    BufferedWriter bw = new BufferedWriter(fw);
+    bw.write(pedido.toString());
+    bw.newLine();
+    bw.close();
+    }
     
       
    
