@@ -7,39 +7,44 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CRUDArchivo {
-    public static void crearUsuario(Usuario usuario) throws IOException {
+    public static void RegistrarCliente(Cliente client) throws IOException {
     FileWriter fw = new FileWriter("usuarios.txt", true);
     BufferedWriter bw = new BufferedWriter(fw);
-    bw.write(usuario.toString());
+    bw.write(client.toString());
     bw.newLine();
     bw.close();
     }
 
     
-    public static List<Usuario> leerUsuarios() throws IOException {
-        List<Usuario> lista = new ArrayList<>();
+    public static List<Cliente> ListarClientes(Cliente cliente) throws IOException {
+        List<Cliente> lista = new ArrayList<>();
         Scanner sc = new Scanner(new File("usuarios.txt"));
 
         while (sc.hasNextLine()) {
             String[] datos = sc.nextLine().split(",");
-            lista.add(new Usuario(
+            lista.add(new Cliente(
                 Integer.parseInt(datos[0]),
                 datos[1],
-                datos[2]));
+                datos[2],
+                Integer.parseInt(datos[3]),
+                Boolean.parseBoolean(datos[4])
+            ));
         }
         sc.close();
         return lista;
     }
 
-        public static void actualizarUsuario(int id, String nuevoNombre, String nuevoEmail) throws IOException {
+        public static void actualizarCliente(int id, String nuevoNombre, String nuevoApellido, int nuevoTelefono, boolean nuevoEstado) throws IOException {
 
-        List<Usuario> lista = leerUsuarios();
+        List<Cliente> lista = ListarClientes(null);
         BufferedWriter bw = new BufferedWriter(new FileWriter("usuarios.txt"));
 
-        for (Usuario u : lista) {
+        for (Cliente u : lista) {
             if (u.getId() == id) { //revisar eso
                 u.setNombre(nuevoNombre);
-                u.setEmail(nuevoEmail);
+                u.setApellido(nuevoApellido);
+                u.setTelefono(nuevoTelefono);
+                u.setEstado(nuevoEstado);
             }
             bw.write(u.toString());
             bw.newLine();
@@ -48,13 +53,13 @@ public class CRUDArchivo {
     }
 
     
-    public static void eliminarUsuario(int id) throws IOException {
+    public static void eliminarCliente(int id) throws IOException {
 
-        List<Usuario> lista = leerUsuarios();
+        List<Cliente> lista = ListarClientes(null);
         BufferedWriter bw = 
             new BufferedWriter(new FileWriter("usuarios.txt"));
 
-        for (Usuario u : lista) {
+        for (Cliente u : lista) {
             if (u.getId() != id) {
                 bw.write(u.toString());
                 bw.newLine();
